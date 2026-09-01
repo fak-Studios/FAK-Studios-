@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FAK Studios — graphic design for brand identity, packaging, and advertising.">
+<title>FAK Studios — Graphic Design</title>
+<style>
+@font-face{font-family:'Anton';src:local('Anton');}
+:root{
+  --ink:#0A0A09;
+  --paper:#F7F4EC;
+  --gold:#C9A227;
+  --gold-bright:#D9B84A;
+  --card:#17160F;
+  --line:#2B2A22;
+  --muted:#9C9885;
+  --muted-dark:#6B6858;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:'Helvetica Neue',Arial,sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+h1,h2,h3,.display{
+  font-family:'Arial Narrow',Arial,sans-serif;
+  font-weight:900;
+  letter-spacing:-0.01em;
+  text-transform:uppercase;
+  line-height:0.88;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{width:min(1180px,90%);margin:0 auto}
+
+/* ---------- NAV ---------- */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(10,10,9,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.navrow{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.wordmark{font-family:'Arial Narrow',Arial,sans-serif;font-weight:900;font-size:22px;letter-spacing:0.02em}
+.wordmark em{font-style:normal;color:var(--gold)}
+.navlinks{display:flex;gap:34px;font-size:13px;letter-spacing:0.04em;color:#cfccbe}
+.navlinks a{position:relative;padding-bottom:3px}
+.navlinks a:hover{color:var(--paper)}
+.navlinks a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .25s ease}
+.navlinks a:hover::after{width:100%}
+@media(max-width:760px){.navlinks{display:none}}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;padding:64px 0 0}
+.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;align-items:end;gap:0}
+.hero-copy{position:relative;z-index:2;padding-right:20px}
+.eyebrow{color:var(--muted);font-size:13px;letter-spacing:.05em;margin-bottom:18px;max-width:360px}
+.hero h1{font-size:clamp(58px,9.2vw,132px);color:var(--paper)}
+.hero h1 .accent{color:var(--gold)}
+.hero-sub{max-width:420px;color:#cbc8b9;font-size:17px;margin-top:26px}
+.hero-actions{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:15px 26px;font-size:14px;font-weight:700;letter-spacing:.02em;
+  border-radius:2px;
+}
+.btn-solid{background:var(--gold);color:var(--ink)}
+.btn-solid:hover{background:var(--gold-bright)}
+.btn-outline{border:1px solid var(--muted-dark);color:var(--paper)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+.hero-frame{
+  position:relative;
+  border:1px solid var(--line);
+  padding:14px;
+  background:var(--card);
+  margin-left:40px;
+}
+.hero-frame img{width:100%}
+.hero-tag{
+  position:absolute;bottom:-1px;left:-1px;
+  background:var(--gold);color:var(--ink);
+  font-size:12px;font-weight:800;letter-spacing:.04em;
+  padding:9px 14px;
+}
+.hero-rule{height:1px;background:var(--line);margin-top:60px}
+
+/* ---------- MARQUEE ---------- */
+.marquee{
+  border-bottom:1px solid var(--line);
+  overflow:hidden;white-space:nowrap;padding:16px 0;
+  background:var(--ink);
+}
+.marquee-track{display:inline-block;animation:scroll 28s linear infinite}
+.marquee span{
+  display:inline-block;font-size:14px;letter-spacing:.08em;color:var(--muted-dark);
+  margin-right:38px;text-transform:uppercase;
+}
+.marquee span.hi{color:var(--gold)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* ---------- SECTION SCAFFOLDING ---------- */
+section{padding:110px 0}
+.section-head{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:end;margin-bottom:56px}
+.section-num{font-size:14px;color:var(--gold);letter-spacing:.06em;padding-bottom:6px}
+.section-title{font-size:clamp(36px,4.6vw,58px);color:var(--paper)}
+.section-title span{color:var(--muted-dark)}
+
+/* ---------- ABOUT ---------- */
+.about{background:var(--paper);color:var(--ink)}
+.about .section-num{color:#8a6d17}
+.about .section-title{color:var(--ink)}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
+.about-photo{border:1px solid #d9d4c2;aspect-ratio:3/4;overflow:hidden}
+.about-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15) contrast(1.02)}
+.about-body p{font-size:19px;max-width:520px;color:#2a2a24}
+.about-body p+p{margin-top:18px}
+.about-stats{display:grid;grid-template-columns:repeat(3,auto);gap:40px;margin-top:44px;padding-top:32px;border-top:1px solid #d9d4c2}
+.stat b{display:block;font-size:34px;font-weight:900;color:var(--ink)}
+.stat span{font-size:13px;color:#7a7666;letter-spacing:.03em}
+
+/* ---------- SERVICES ---------- */
+.services-list{border-top:1px solid var(--line)}
+.service-row{
+  display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:center;
+  padding:28px 0;border-bottom:1px solid var(--line);
+  transition:background .2s ease;
+}
+.service-row:hover{background:#100f0a}
+.service-row .idx{color:var(--muted-dark);font-size:14px}
+.service-row h3{font-size:26px;letter-spacing:0;text-transform:none;font-family:'Arial Narrow',Arial,sans-serif;font-weight:800;color:var(--paper)}
+.service-row p{color:var(--muted);font-size:14px;max-width:340px;text-transform:none}
+.service-row .cat{font-size:12px;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}
+
+/* ---------- WORK ---------- */
+.work{background:#0d0c08}
+.work-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:180px;
+  grid-auto-flow:dense;
+  gap:14px;
+}
+.tile{
+  position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);
+}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.tile:hover img{transform:scale(1.05)}
+.tile-cap{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:14px 16px;
+  background:linear-gradient(to top,rgba(0,0,0,.85),transparent);
+  font-size:12px;letter-spacing:.05em;color:var(--paper);text-transform:uppercase;
+  opacity:0;transform:translateY(6px);transition:all .25s ease;
+}
+.tile:hover .tile-cap{opacity:1;transform:translateY(0)}
+.work-grid .tile:nth-child(1){grid-column:span 2;grid-row:span 2}
+.work-grid .tile:nth-child(2){grid-column:span 1;grid-row:span 1}
+.work-grid .tile:nth-child(3){grid-column:span 1;grid-row:span 1}
+.work-grid .tile:nth-child(4){grid-column:span 1;grid-row:span 1}
+.work-grid .tile:nth-child(5){grid-column:span 1;grid-row:span 2}
+.work-grid .tile:nth-child(6){grid-column:span 2;grid-row:span 1}
+.work-grid .tile:nth-child(7){grid-column:span 1;grid-row:span 2}
+.work-grid .tile:nth-child(8){grid-column:span 1;grid-row:span 1}
+@media(max-width:900px){
+  .work-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}
+  .work-grid .tile{grid-column:span 1!important;grid-row:span 1!important}
+}
+
+/* ---------- CONTACT ---------- */
+.contact{position:relative}
+.contact-frame{
+  border:1px solid var(--line);
+  padding:70px 50px;
+  display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;
+}
+.contact h2{font-size:clamp(38px,5vw,64px);color:var(--paper)}
+.contact h2 span{color:var(--gold)}
+.contact-links{display:flex;flex-direction:column;gap:14px;font-size:16px}
+.contact-links a{border-bottom:1px solid var(--line);padding-bottom:14px}
+.contact-links a:hover{color:var(--gold)}
+.contact-links .label{display:block;font-size:12px;color:var(--muted-dark);letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}
+
+footer{
+  padding:34px 0;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;color:var(--muted-dark);font-size:13px;
+}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-frame{margin:40px 0 0}
+  .about-grid{grid-template-columns:1fr}
+  .about-stats{grid-template-columns:repeat(3,1fr);gap:20px}
+  .contact-frame{grid-template-columns:1fr;padding:40px 24px}
+  section{padding:70px 0}
+  .service-row{grid-template-columns:36px 1fr;row-gap:6px}
+  .service-row .cat{grid-column:2}
+}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap navrow">
+  <div class="wordmark">F<em>A</em>K STUDIOS</div>
+  <div class="navlinks">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">Graphic design studio run by Fawas Akande — brand identity, packaging &amp; advertising design.</div>
+      <h1>Design<br>that <span class="accent">holds</span><br>attention.</h1>
+      <p class="hero-sub">I build visual identities and campaign work for brands that need to look considered — logos, packaging, posters, and social design that read as premium at a glance.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="#contact">Start a project</a>
+        <a class="btn btn-outline" href="#work">See the work</a>
+      </div>
+    </div>
+    <div class="hero-frame">
+      <img src="assets/workspace.png" alt="FAK Studios workspace — logo design open in Photoshop">
+      <div class="hero-tag">At work — brand design in progress</div>
+    </div>
+  </div>
+  <div class="hero-rule"></div>
+</div></header>
+
+<div class="marquee"><div class="marquee-track">
+  <span>Logo Design</span><span class="hi">Brand Identity</span><span>Packaging</span><span class="hi">Posters &amp; Flyers</span><span>Social Media</span><span class="hi">Billboards</span><span>Logo Design</span><span class="hi">Brand Identity</span><span>Packaging</span><span class="hi">Posters &amp; Flyers</span><span>Social Media</span><span class="hi">Billboards</span>
+</div></div>
+
+<section id="about" class="about"><div class="wrap">
+  <div class="section-head">
+    <div class="section-num">01</div>
+    <h2 class="section-title">About</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-photo"><img src="assets/portrait.png" alt="Fawas Akande working at his desk"></div>
+    <div class="about-body">
+      <p>I'm Fawas Akande, a graphic designer working with brands and small businesses that need their visuals to do more than look nice — logos, identity systems, packaging, and campaign design built to hold up next to bigger competitors.</p>
+      <p>Every project starts with what the brand needs to say, then finds the visual language to say it clearly: color, type, and layout chosen on purpose, not defaulted to.</p>
+      <div class="about-stats">
+        <div class="stat"><b>30+</b><span>Projects delivered</span></div>
+        <div class="stat"><b>6</b><span>Design disciplines</span></div>
+        <div class="stat"><b>1:1</b><span>Direct with clients</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="services"><div class="wrap">
+  <div class="section-head">
+    <div class="section-num">02</div>
+    <h2 class="section-title">Services</h2>
+  </div>
+  <div class="services-list">
+    <div class="service-row">
+      <span class="idx">01</span>
+      <div><h3>Logo Design</h3><p>Distinctive marks built to work at any size, from favicon to billboard.</p></div>
+      <span class="cat">Identity</span>
+    </div>
+    <div class="service-row">
+      <span class="idx">02</span>
+      <div><h3>Brand Identity</h3><p>Full visual systems — color, type, and stationery that stay consistent everywhere.</p></div>
+      <span class="cat">Identity</span>
+    </div>
+    <div class="service-row">
+      <span class="idx">03</span>
+      <div><h3>Flyers &amp; Posters</h3><p>Promotional design for events, launches, and campaigns that needs to get noticed.</p></div>
+      <span class="cat">Print</span>
+    </div>
+    <div class="service-row">
+      <span class="idx">04</span>
+      <div><h3>Social Media Graphics</h3><p>Scroll-stopping visuals built for the platforms your audience is actually on.</p></div>
+      <span class="cat">Digital</span>
+    </div>
+    <div class="service-row">
+      <span class="idx">05</span>
+      <div><h3>Packaging Design</h3><p>Product packaging that earns a second look on a crowded shelf.</p></div>
+      <span class="cat">Product</span>
+    </div>
+    <div class="service-row">
+      <span class="idx">06</span>
+      <div><h3>Billboard &amp; Ads</h3><p>Large-format and out-of-home advertising built for a five-second read.</p></div>
+      <span class="cat">Print</span>
+    </div>
+  </div>
+</div></section>
+
+<section id="work" class="work"><div class="wrap">
+  <div class="section-head">
+    <div class="section-num">03</div>
+    <h2 class="section-title">Selected work</h2>
+  </div>
+  <div class="work-grid">
+    <div class="tile"><img src="assets/royalty-logo.png" alt="Royalty Clothing gold logo mark"><div class="tile-cap">Royalty Clothing — Logo Design</div></div>
+    <div class="tile"><img src="assets/brand-identity.png" alt="Green Life brand identity stationery set"><div class="tile-cap">Green Life — Brand Identity</div></div>
+    <div class="tile"><img src="assets/youth-summit-poster.png" alt="Youth Summit 2024 event poster"><div class="tile-cap">Youth Summit 2024 — Poster Design</div></div>
+    <div class="tile"><img src="assets/nike-social.png" alt="Nike new arrival social media ad"><div class="tile-cap">Nike — Social Media Design</div></div>
+    <div class="tile"><img src="assets/luxe-noir-packaging.png" alt="Luxe Noir perfume packaging design"><div class="tile-cap">Luxe Noir — Packaging Design</div></div>
+    <div class="tile"><img src="assets/billboard.png" alt="Building Tomorrow Together billboard design"><div class="tile-cap">BeltCon — Billboard Design</div></div>
+    <div class="tile"><img src="assets/peak-consults-logo.png" alt="Peak Consults mountain logo mark"><div class="tile-cap">Peak Consults — Logo Design</div></div>
+    <div class="tile"><img src="assets/food-flyer.png" alt="Delicious food promotional flyer"><div class="tile-cap">Delicious Food — Flyer Design</div></div>
+  </div>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <div class="contact-frame">
+    <h2>Have a project<br>in <span>mind?</span></h2>
+    <div class="contact-links">
+      <a href="mailto:akandefawas65@gmail.com">
+        <span class="label">Email</span>akandefawas65@gmail.com
+      </a>
+      <a href="https://wa.me/2347075063913">
+        <span class="label">WhatsApp</span>+234 707 506 3913
+      </a>
+      <a class="btn btn-solid" style="margin-top:8px;width:fit-content" href="https://wa.me/2347075063913">Chat on WhatsApp</a>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
+  <span>© 2026 FAK Studios. All rights reserved.</span>
+  <span>Available for freelance projects</span>
+</div></footer>
+
+</body>
+</html>
